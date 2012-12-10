@@ -8,10 +8,31 @@ namespace RestApi.Controllers
 {
     public class UserController : Controller
     {
-        //
-        // GET: /User/
-
         public ActionResult Index()
+        {
+            return View();
+        }
+        public ActionResult Get(int id)
+        {
+            return View();
+        }
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public ActionResult Update(int id)
+        {
+            return View();
+        }
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+        public ActionResult LogOn(string email,  string password)
+        {
+            return View();
+        }
+        public ActionResult LogOn(string email)
         {
             return View();
         }
