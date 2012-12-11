@@ -11,5 +11,7 @@ namespace RestApi.Models
         public DateTime EventDate { get;set; }
         public DateTime ReminderDate { get;set; }
         public string Message { get;set; }
+        public int UserID { get; set; }
+        public virtual User User { get; set; }
     }
 }

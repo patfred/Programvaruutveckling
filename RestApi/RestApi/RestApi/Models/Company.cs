@@ -13,5 +13,7 @@ namespace RestApi.Models
         public string Phone { get;set; }
         public string Email { get;set; }
         public string Website { get;set; }
+        public ICollection<Tags> Tags { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
     }
 }

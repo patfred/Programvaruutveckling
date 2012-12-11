@@ -13,5 +13,8 @@ namespace RestApi.Models
         public DateTime StartDate { get;set; }
         public DateTime EndDate { get;set; }
         public string City { get; set; }
+        public ICollection<Statement> Statements { get; set; }
+        public ICollection<Contact> Contacts { get; set; }
+        public ICollection<Tags> Tags { get; set; }
     }
 }

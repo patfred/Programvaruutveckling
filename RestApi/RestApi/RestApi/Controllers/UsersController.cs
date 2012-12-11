@@ -7,30 +7,35 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-
+using RestApi.Repository.Abstract;
 
     public class UsersController : ApiController
     {
+        private IRepository<User> _userRepo;
 
-        User[] users = new User[] 
-        { 
-            new User { ID = 1, Email = "test@gmail.com"}, 
-            new User { ID = 2, Email = "test@gmail.com"}, 
-            new User { ID = 3, Email = "test@gmail.com"} 
-        };
+        public UsersController(IRepository<User> users)
+        {
+            _userRepo = users;
+        }
 
         public IEnumerable<User> GetAllUsers()
         {
-            return users;
+            return _userRepo.FindAll();
         }
+
         public User GetUserById(int id)
         {
-            var user = users.FirstOrDefault((p) => p.ID == id);
+            var user = _userRepo.FindByID(id);
             if (user == null)
             {
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
             return user;
+        }
+
+        public IEnumerable<User> GetUsersByAdmin(string admin)
+        {
+            return _userRepo.FindAll().Where(u => u.Admin == 1);
         }
         /*
         public ActionResult Create()
