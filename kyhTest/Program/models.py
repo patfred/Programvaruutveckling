@@ -1,4 +1,7 @@
 from django import models
+from kyhTest.content.models import Tag
+from kyhTest.content.models import Company
+from kyhTest.content.models import Contact
 
 class Program(models.Model):
 
@@ -9,4 +12,6 @@ class Program(models.Model):
 	city = models.CharField(max_length = 45)
 	description = models.TextField()
 	in_charge = models.CharField(max_length = 45)
-	tags = models.ManyToManyField('Tag')
+	tag = models.ManyToManyField('Tag')
+	company = models.ManyToManyField('Company')
+	contact = models.ManyToManyField('Contact')

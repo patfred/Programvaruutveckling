@@ -1,4 +1,6 @@
 from django.db import models
+from kyhTest.content.models import Tag
+from kyhTest.content.models import Program
 
 class Company(models.Model):
 	name = models.CharField(max_length = 45)
@@ -7,6 +9,7 @@ class Company(models.Model):
 	email = models.CharField(max_length = 45)
 	website = models.CharField(max_length = 45)
 	description = models.CharField(max_lenght = 45)
-	tags = models.ForeignKey('Tag')
+	tag = models.ManyToManyField('Tag')
+	program = models.ManyToManyField('Program')
 	
 	
