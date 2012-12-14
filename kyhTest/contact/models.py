@@ -11,6 +11,6 @@ class Contact(models.Model):
 	phone = models.CharField(max_length = 45)
 	email = models.CharField(max_length = 45)
 	description = models.CharField(max_length = 45)
-	company = models.ForeignKey('Company')
+	company = models.ManyToManyField('Company')
 	tag = models.ManyToManyField('Tag')
 	program = models.ManyToManyField('Program')
