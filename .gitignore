@@ -1,5 +1,9 @@
 *.py[cod]
 
+# OS generated files
+.DS_Store
+[Tt]humbs.db
+
 # C extensions
 *.so
 
@@ -33,3 +37,4 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
+
