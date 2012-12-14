@@ -7,42 +7,41 @@ using System.Web.Http;
 using Test.Repository.Abstract;
 using Test.Models;
 using Test.Repository;
-using Test.Models;
 
 namespace Test.Controllers
 {
-    public class CompanyController : ApiController
+    public class ContactController : ApiController
     {
-        readonly IRepository<Company> _companyRepo;
+        readonly IRepository<Contact> _contactRepo;
 
-        public CompanyController()
+        public ContactController()
         {
-            this._companyRepo = new Repository<Company>();
+            this._contactRepo = new Repository<Contact>();
         }
 
-        public CompanyController(IRepository<Company> _companyRepo)
+        public ContactController(IRepository<Contact> _contactRepo)
         {
-            this._companyRepo = _companyRepo;
+            this._contactRepo = _contactRepo;
         }
 
         // GET api/values
-        public IEnumerable<Company> Get()
+        public IEnumerable<Contact> Get()
         {
-            var users = _companyRepo.FindAll();
+            var users = _contactRepo.FindAll();
             return users;
         }
 
         // GET api/values/5
         public User Get(int id)
         {
-            return _companyRepo.FindAll().First(u => u.ID == id);
+            return _contactRepo.FindAll().First(u => u.ID == id);
         }
 
         // POST api/values
         public void Post([FromBody]string value)
         {
-            User user = new User();
-            _companyRepo.Save(user);
+            Contact contact = new Contact();
+            _contactRepo.Save(contact);
         }
 
         // PUT api/values/5

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Test.Models.Abstract;
 
-namespace RestApi.Models
+namespace Test.Models
 {
     public class Contact : IEntity
     {

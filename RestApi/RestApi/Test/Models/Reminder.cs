@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Test.Models.Abstract;
 using Test.Models;
-namespace RestApi.Models
+namespace Test.Models
 {
     public class Reminder : IEntity
     {

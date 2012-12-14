@@ -10,52 +10,52 @@ using Test.Repository;
 
 namespace Test.Controllers
 {
-    public class CompanyController : ApiController
+    public class UserController : ApiController
     {
         readonly IRepository<User> _userRepo;
 
-        public CompanyController()
+        public UserController()
         {
-            this._companyRepo = new Repository<User>();
+            this._userRepo = new Repository<User>();
         }
 
-        public CompanyController( IRepository<User> _userRepo )
+        public UserController(IRepository<User> _userRepo)
         {
-            this._companyRepo = _userRepo;
+            this._userRepo = _userRepo;
         }
 
         // GET api/values
         public IEnumerable<User> Get()
         {
-            var users = _companyRepo.FindAll();
+            var users = _userRepo.FindAll();
             return users;
         }
 
         // GET api/values/5
         public  User Get(int id)
         {
-            return _companyRepo.FindAll().First(u => u.ID == id);
+            return _userRepo.FindAll().First(u => u.ID == id);
         }
 
         // POST api/values
         public void Post([FromBody]string value)
         {
             User user = new User();
-            _companyRepo.Save(user);
+            _userRepo.Save(user);
         }
 
         // PUT api/values/5
         public void Put(int id, [FromBody]string value)
         {
-            var user = _companyRepo.FindAll().First(u => u.ID == id);
-            _companyRepo.Save(user);
+            var user = _userRepo.FindAll().First(u => u.ID == id);
+            _userRepo.Save(user);
         }
 
         // DELETE api/values/5
         public void Delete(int id)
         {
-            var user = _companyRepo.FindAll().First(u => u.ID == id);
-            _companyRepo.Delete(user);
+            var user = _userRepo.FindAll().First(u => u.ID == id);
+            _userRepo.Delete(user);
         }
     }
 }
