@@ -7,32 +7,33 @@ using System.Web.Http;
 using Test.Repository.Abstract;
 using Test.Models;
 using Test.Repository;
+using RestApi.Models;
 
 namespace Test.Controllers
 {
     public class CompanyController : ApiController
     {
-        readonly IRepository<User> _userRepo;
+        readonly IRepository<Company> _companyRepo;
 
         public CompanyController()
         {
-            this._companyRepo = new Repository<User>();
+            this._companyRepo = new Repository<Company>();
         }
 
-        public CompanyController( IRepository<User> _userRepo )
+        public CompanyController(IRepository<Company> _companyRepo)
         {
-            this._companyRepo = _userRepo;
+            this._companyRepo = _companyRepo;
         }
 
         // GET api/values
-        public IEnumerable<User> Get()
+        public IEnumerable<Company> Get()
         {
             var users = _companyRepo.FindAll();
             return users;
         }
 
         // GET api/values/5
-        public  User Get(int id)
+        public User Get(int id)
         {
             return _companyRepo.FindAll().First(u => u.ID == id);
         }
