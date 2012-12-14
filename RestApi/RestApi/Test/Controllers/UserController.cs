@@ -6,17 +6,24 @@ using System.Net.Http;
 using System.Web.Http;
 using Test.Repository.Abstract;
 using Test.Models;
+using Test.Repository;
 
 namespace Test.Controllers
 {
     public class UserController : ApiController
     {
-        private IRepository<User> _userRepo;
+        readonly IRepository<User> _userRepo;
 
-        public UserController(IRepository<User> users)
+        public UserController()
         {
-            _userRepo = users;
+            this._userRepo = new Repository<User>();
         }
+
+        public UserController(IRepository<User> _userRepo)
+        {
+            this._userRepo = _userRepo;
+        }
+
         // GET api/values
         public IEnumerable<User> Get()
         {
